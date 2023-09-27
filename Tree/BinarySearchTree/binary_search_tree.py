@@ -20,7 +20,7 @@ def insert_node(root_node, node_value):
 			root_node.right_child = BSTNode(node_value)
 		else:
 			insert_node(root_node.right_child, node_value)
-	print("inserted node succefully!")
+	print("inserted node successfully!")
 
 def pre_order_traversal(root_node):
 	if not root_node:
@@ -58,19 +58,19 @@ def level_order_traversal(root_node):
 
 
 def search_node(root_node, node_value):
-	if not root_node:
-		return
-	custom_queue = Queue.Queue()
-	custom_queue.enqueue(root_node)
-	while not custom_queue.isEmpty():
-		current_node = custom_queue.dequeue()
-		if node_value == current_node.data:
-			print("Node found!")
-			return
-		elif node_value < current_node.data:
-			custom_queue.enqueue(current_node.left_child) 
+	if root_node.data == node_value:
+		print("The value is found")
+	elif node_value < root_node.data:
+		if root_node.left_child.data == node_value:
+			print("The value is found")
 		else:
-			custom_queue.enqueue(current_node.right_child)
+			search_node(root_node.left_child, node_value)
+	else:
+		if root_node.right_child.data == node_value:
+			print("The value is found")
+		else:
+			search_node(root_node.right_child, node_value)
+
 
 def min_value_node(root_node):
 	current_node = root_node
