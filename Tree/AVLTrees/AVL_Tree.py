@@ -207,6 +207,12 @@ def delete_node(root_node, node_value):
 
     return root_node
 
+def delete_avl_tree(root_node):
+    root_node.data = None
+    root_node.left_child = None
+    root_node.right_child = None
+    return "Avl tree has been deleted succefully"
+
 print("==========================================")
 # Test inserting a node
 root = AVLNode(10)
@@ -234,3 +240,6 @@ root = delete_node(root, 20)
 in_order_traversal(root)
 # assert in_order_traversal(root) == [3, 5, 8, 10, 15]
 print("==========================================")
+
+delete_avl_tree(root)
+in_order_traversal(root)
