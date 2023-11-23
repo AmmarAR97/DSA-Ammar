@@ -68,16 +68,28 @@ class Graph:
                     queue.append(adjacent_vertex)
 
     def dfs(self, vertex):
+        # Set to keep track of visited vertices
         visited = set()
+
+        # Initialize the stack with the starting vertex
         stack = [vertex]
+
+        # Continue DFS until the stack is empty
         while stack:
+            # Get the current vertex from the top of the stack
             current_vertex = stack.pop()
+
+            # Visit and mark the current vertex as visited
             if current_vertex not in visited:
                 print(current_vertex)
                 visited.add(current_vertex)
+
+            # Explore adjacent vertices
             for adjacent_vertex in self.adjacency_list[current_vertex]:
+                # Push unvisited adjacent vertices onto the stack
                 if adjacent_vertex not in visited:
                     stack.append(adjacent_vertex)
+
 
 
 
